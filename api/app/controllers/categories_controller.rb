@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 def index
         @categories = Category.where(active: true)
-        render json: @categories, status: :ok
+        render json: @categories.select(:id, :title, :description), status: :ok
     end
 
     def show
